@@ -1,24 +1,42 @@
 import streamlit as st
 
-st.title("BMI Calculator")
+# --- Page settings ---
+st.set_page_config(page_title="My CV", layout="centered")
 
-# User inputs
-height = st.number_input("Enter your height (in cm):", min_value=50.0, max_value=250.0, value=170.0)
-weight = st.number_input("Enter your weight (in kg):", min_value=10.0, max_value=200.0, value=70.0)
+# --- Header ---
+st.title("📄 Shreek Adhikari")
+st.subheader("Software Developer")
+st.write("📍 Kathmandu, Nepal")
+st.write("📧 shreek@example.com | 📱 +977-98xxxxxx | 🌐 github.com/shreekadhikari")
 
-# BMI Calculation
-if height and weight:
-    height_m = height / 100
-    bmi = weight / (height_m ** 2)
+# --- Summary ---
+st.header("🧾 Profile Summary")
+st.write("""
+Passionate full-stack developer with experience in modern web technologies and cloud platforms. 
+I enjoy building scalable web apps, RESTful APIs, and clean user interfaces.
+""")
 
-    st.write(f"Your BMI is: **{bmi:.2f}**")
+# --- Skills ---
+st.header("💼 Skills")
+cols = st.columns(2)
+cols[0].markdown("- Python\n- JavaScript\n- HTML/CSS\n- Flask\n- FastAPI")
+cols[1].markdown("- React\n- PostgreSQL\n- Docker\n- Git/GitHub\n- Streamlit")
 
-    # Classification
-    if bmi < 18.5:
-        st.warning("You're underweight.")
-    elif 18.5 <= bmi < 24.9:
-        st.success("You have a normal weight.")
-    elif 25 <= bmi < 29.9:
-        st.info("You're overweight.")
-    else:
-        st.error("You're in the obese range.")
+# --- Experience ---
+st.header("🧰 Experience")
+st.subheader("Software Developer @ MyCompany")
+st.write("2022 - Present")
+st.write("""
+- Developed internal dashboards using Flask and React.
+- Implemented REST APIs with FastAPI.
+- Deployed Dockerized apps to DigitalOcean.
+""")
+
+# --- Education ---
+st.header("🎓 Education")
+st.subheader("BSc in Computer Science")
+st.write("Tribhuvan University, 2017 - 2021")
+
+# --- Footer ---
+st.markdown("---")
+st.write("Made with ❤️ using Streamlit")
